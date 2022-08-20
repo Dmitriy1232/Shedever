@@ -172,21 +172,32 @@ body {
 .slider {
 	position: relative;
 }
+
 .slider__title {
 	font-size:calc(23px + 41 * ((100vw - 320px) / (1920 - 320)));
 	margin-bottom: calc(7px + 53 * ((100vw - 320px) / (1920 - 320)));
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0.8s ease 0s;
 }
+
 .slider__body {
 	overflow: hidden;
 }
 .slider__item {
 	width: calc(83px + 322 * ((100vw - 426px) / (1920 - 426)));
 	margin: 0px calc(5.8px + 14.2 * ((100vw - 426px) / (1920 - 426))) 0px 0px;
+	
 }
+
 .slider__img {
 	width: calc(83px + 322 * ((100vw - 426px) / (1920 - 426)));
 	height: calc(83px + 317 * ((100vw - 426px) / (1920 - 426)));
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0.8s ease 0s;
 }
+
 .slider__img img{
 	width: 100%;
 	height: 100%;
@@ -197,7 +208,83 @@ body {
 	font-weight: bold;
 	margin: calc(5px + 25 * ((100vw - 320px) / (1920 - 320))) 0px 0px 0px;
 	font-size: calc(14px + 18 * ((100vw - 320px) / (1920 - 320)));
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0.8s ease 0s;
 }
+
+/*-------------------Аницация слайдера-------------------*/
+
+
+
+._active .slider__title {
+	transform: translate(0px, 0px);
+	opacity: 1;
+}
+
+._active .slider_turn-1 div {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 0.4s;
+}
+
+._active .slider_turn-1 p {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 0.8s;
+}
+
+._active .slider_turn-2 div {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 0.6s;
+}
+
+._active .slider_turn-2 p {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 1s;
+}
+
+._active .slider_turn-3 div {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 0.8s;
+}
+
+._active .slider_turn-3 p {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 1.2s;
+}
+
+._active .slider_turn-4 div {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 1s;
+}
+
+._active .slider_turn-4 p {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 1.4s;
+}
+
+._active .slider_turn-5 div {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 1.2s;
+}
+
+._active .slider_turn-5 p {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 1.6s;
+}
+
+/*-------------------Аницация слайдера-------------------*/
+
+
 
 .slick-track{
 	display: flex;
@@ -212,15 +299,30 @@ body {
 	margin: calc((12px + 18 * ((100vw - 426px) / (1920 - 426))) * -1) 0px 0px 0px;
 	width: calc(24px + 36 * ((100vw - 320px) / (1920 - 320)));
 	height: calc(24px + 36 * ((100vw - 320px) / (1920 - 320)));
-	background: url('../img/icons/arrowCircle.svg') 0 0 / 100% no-repeat;
+	transform:translate(0px, 800%);
+	opacity: 0;
+	transition: all 0s ease 0s;
 }
 .slider__body .slick-arrow.slick-prev{
-	transform: rotate(180deg);
 	left: calc((30px + 70 * ((100vw - 426px) / (1920 - 426))) * -1);
-	opacity: 0.35;
+	background: url('../img/icons/arrowCircleLeft.svg') 0 0 / 100% no-repeat;
 }
 .slider__body .slick-arrow.slick-next{
 	right: calc((30px + 70 * ((100vw - 426px) / (1920 - 426))) * -1);
+	background: url('../img/icons/arrowCircleRight.svg') 0 0 / 100% no-repeat;
+}
+
+._active .slider__body .slick-arrow.slick-prev {
+	transform:translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 0.4s;
+}
+
+
+._active .slider__body .slick-arrow.slick-next {
+	transform:translate(0px, 0px);
+	opacity: 1;
+	transition: all 1.8s ease 1s;
 }
 
 @media (max-width: 425px){
@@ -250,7 +352,7 @@ body {
 	width: 100%;
 	margin-top: calc(9px + 130 * ((100vw - 320px) / ((1920 - 320))));
 	height :26.19vw;
-	background-color: #F0F0F0;
+	background-color: rgba(240, 240, 240, 0);
 	position: relative;
 }
 .third-skrin__right{
@@ -259,7 +361,18 @@ body {
 	right: 0;
 	height: 26.19vw;
 	width: 50%;
+	opacity: 0;
 }
+.third-skrin._active{
+	background-color: rgba(240, 240, 240, 1.0);
+	transition: all 2s ease-in 0s;
+}
+.third-skrin._active,
+._active .third-skrin__right{
+	opacity: 1;
+	transition: all 2s ease-in 0s;
+}
+
 .third-skrin__right img{
 	width: 100%;
 	height: 100%;
@@ -276,18 +389,52 @@ body {
 .third-skrin__title {
 	font-weight: bold;
 	font-size: calc(19px + 17 * ((100vw - 668px) / ((1920 - 668))));
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0.8s ease 0s;
 }
 .third-skrin__text {
 	font-family:'Roboto', sans-serif;
 	font-weight: 400;
 	font-size: calc(13px + 11 * ((100vw - 668px) / ((1920 - 668))));
 	margin: calc(7px + 21 * ((100vw - 668px) / ((1920 - 668)))) 0px;
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0.8s ease 0s;
 }
 .third-skrin__button {}
 .button__body_third-skrin {
 	width: calc(138px + 322 * ((100vw - 320px) / (1920 - 320)));
 	height: calc(28.8px + 67.2 * ((100vw - 320px) / (1920 - 320)));
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0.8s ease 0s;
 }
+
+.third-skrin._active,
+._active .third-skrin__title {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 0s;
+}
+
+.third-skrin._active,
+._active .third-skrin__text {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 0.4s;
+}
+
+.third-skrin._active,
+._active .button__body_third-skrin {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 0.8s;
+}
+
+
+
+
 
 @media (max-width: 667px){
 .third-skrin {
@@ -324,12 +471,20 @@ body {
 	height: calc(28.8px + 67.2 * ((100vw - 320px) / (1920 - 320)));
 }
 }
+.fourth-skrin{
+	margin-top: calc(9px + 130 * ((100vw - 320px) / ((1920 - 320))));
+}
+
+
 .fifth-skrin {
 	margin-top: calc(9px + 130 * ((100vw - 320px) / ((1920 - 320))));
 }
 .fifth-skrin__title {
 	font-size:calc(23px + 41 * ((100vw - 320px) / (1920 - 320)));
 	margin-bottom: calc(7px + 53 * ((100vw - 320px) / (1920 - 320)));
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0s ease 0s;
 }
 .fifth-skrin__img {
 	display: flex;
@@ -338,7 +493,35 @@ body {
 }
 .fifth-skrin__img img{
 	flex: 0 0 33.333%;
+	opacity: 0;
+	transition: all 0s ease 0s;
 }
+
+/*----------------Анимация 5-го экрана--------------*/
+
+
+._active .fifth-skrin__title {
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 0s;
+}
+
+._active .fifth-skrin_turn-1{
+	opacity: 1;
+	transition: all 2s ease-in 0.4s;
+}
+
+._active .fifth-skrin_turn-2{
+	opacity: 1;
+	transition: all 2s ease-in 0.8s;
+}
+
+._active .fifth-skrin_turn-3{
+	opacity: 1;
+	transition: all 2s ease-in 1s;
+}
+/*----------------Анимация 5-го экрана--------------*/
+
 
 .last-skrin {
 	margin-top: calc(9px + 130 * ((100vw - 320px) / ((1920 - 320))));
@@ -346,10 +529,14 @@ body {
 .last-skrin__title {
 	font-size:calc(23px + 41 * ((100vw - 320px) / (1920 - 320)));
 	margin-bottom: calc(7px + 53 * ((100vw - 320px) / (1920 - 320)));
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0s ease 0s;
 }
 .last-skrin__body{
 	position: relative;
-	background-color: #F0F0F0;
+	background-color: rgba(240, 240, 240, 0);
+	transition: all 0s ease-in 0s;
 	height: 53.125vw;
 }
 .last-skrin__container {
@@ -363,6 +550,9 @@ body {
 .last-skrin__text {
 	margin-bottom: calc(5px + 22 * ((100vw - 426px) / (1920 - 426)));
 	font-size: calc(11px + 26 * ((100vw - 426px) / (1920 - 426)));
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0s ease 0s;
 }
 
 ._form {
@@ -379,10 +569,16 @@ body {
 .phone {
 	margin-left: calc(11px + 19 * ((100vw - 426px) / (1920 - 426)));
 	font-size: calc(11px + 21 * ((100vw - 426px) / (1920 - 426)));
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0s ease 0s;
 }
 .name {
 	margin-left: calc(11px + 19 * ((100vw - 426px) / (1920 - 426)));
 	font-size: calc(11px + 21 * ((100vw - 426px) / (1920 - 426)));
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0s ease 0s;
 }
 .last-skrin__button {
 
@@ -390,6 +586,9 @@ body {
 .button__body_last-skrin {
 	width: 100%;
 	height: 6.92vw;
+	transform: translate(0px, 120%);
+	opacity: 0;
+	transition: all 0s ease 0s;
 }
 .last-skrin__img {
 	position: absolute;
@@ -397,6 +596,8 @@ body {
 	top: 0;
 	height: 100%;
 	width: 50%;
+	opacity: 0;
+	transition: all 0s ease 0s;
 }
 .last-skrin__img img{
 	width: 100%;
@@ -435,6 +636,7 @@ body {
 .name {
 	margin-left: 15px;
 	font-size: calc(15px + 6 * ((100vw - 320px) / (425 - 320)));
+
 }
 .button__body_last-skrin {
 	width: calc(250px + 98 * ((100vw - 320px) / (425 - 320)));
@@ -447,3 +649,62 @@ body {
 	display: none;
 }
 }
+
+
+
+/*---------------Анимация последнего экрана---------------*/
+
+
+
+._active .last-skrin__title{
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 0s;
+}
+
+
+._active .last-skrin__img{
+	opacity: 1;
+	transition: all 2s ease-in 0.4s;
+}
+
+._active .last-skrin__body{
+	background-color: rgba(240, 240, 240, 1.0);
+	transition: all 2s ease-in 0.4s;
+}
+
+
+._active .last-skrin_turn-1{
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 0.4s;
+}
+
+
+._active .last-skrin_turn-2{
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 0.6s;
+}
+
+
+._active .phone{
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 0.8s;
+}
+
+
+._active .name{
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 1s;
+}
+
+
+._active .button__body_last-skrin{
+	transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 1.2s;
+}
+/*---------------Анимация последнего экрана---------------*/
